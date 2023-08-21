@@ -177,19 +177,6 @@ class MyAccount extends StatefulWidget {
 
 class _MyAccountState extends State<MyAccount> {
 
-  final ImagePicker _imagePicker = ImagePicker();
-  File? pickedImage;
-
-  Future<void> _selectImage() async {
-    final pickedFile = await _imagePicker.pickImage(source: ImageSource.gallery);
-
-    if (pickedFile != null) {
-      setState(() {
-        pickedImage = File(pickedFile.path);
-      });
-    }
-  }
-
     @override
     Widget build(BuildContext context) {
       return Scaffold(
@@ -251,29 +238,9 @@ class _MyAccountState extends State<MyAccount> {
                           ),
                           child: Stack(
                             children: [
-                              // Center(
-                              //   child: Image.asset('assets/img/profile.png'),
-                              // ),
-
-                              //TODO: File Upload Profile Shape
-                              GestureDetector(
-                                onTap: _selectImage,
-                                child: Center(
-                                  child: ClipOval(
-                                    child: SizedBox(
-                                      width: 100,
-                                      height: 100,
-                                      child: pickedImage != null
-                                          ? Image.file(
-                                        pickedImage!,
-                                        fit: BoxFit.cover,
-                                      )
-                                          : Image.asset('assets/img/profile.png'),
-                                    ),
-                                  ),
-                                ),
+                              Center(
+                                child: Image.asset('assets/img/profile.png'),
                               ),
-
                               Positioned(
                                 bottom: 5,
                                 right: 5,
@@ -286,21 +253,10 @@ class _MyAccountState extends State<MyAccount> {
                                   ),
 
                                   //TODO: Static Profile Image
-                                  // child: const Icon(
-                                  //   Icons.camera_alt,
-                                  //   size: 16,
-                                  //   color: Colors.white,
-                                  // ),
-
-                                  //TODO: Image Upload Camera Button
-                                  child: IconButton(
-                                    padding: const EdgeInsets.all(5),
-                                    icon: const Icon(
-                                      Icons.camera_alt,
-                                      size: 16,
-                                      color: Colors.white,
-                                    ),
-                                    onPressed: _selectImage,
+                                  child: const Icon(
+                                    Icons.camera_alt,
+                                    size: 16,
+                                    color: Colors.white,
                                   ),
                                 ),
                               ),

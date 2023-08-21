@@ -39,7 +39,7 @@ class _EditProfileState extends State<EditProfile> {
               },
               child: Container(
                 margin: const EdgeInsets.symmetric(
-                    vertical: 10.0, horizontal: 0),
+                    vertical: 10.0, horizontal: 5),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                     color: Colors.transparent,
@@ -136,24 +136,49 @@ class _EditProfileState extends State<EditProfile> {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Container(
-                        color: Colors.pink,
-                        height: 200,
-                        width: 428,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text('First Name',style: TextStyle(
+                            color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16
+                          ),),
+                          Text('First Name',style: TextStyle(
+                              color: Colors.black,fontWeight: FontWeight.w500,fontSize: 16
+                          ),),
+                        ],
                       ),
-                      SizedBox(height: 10,),
-                      Container(
-                        color: Colors.teal,
-                        height: 200,
-                        width: 428,
-                      ),
-                      SizedBox(height: 10,),
-                      Container(
-                        color: Colors.yellow,
-                        height: 200,
-                        width: 428,
-                      ),
+                      Row(
+                        children: [
+                          Container(
+                            color: Colors.pink,
+                            height: 40,
+                            child: const TextField(
+                              decoration: InputDecoration(
+                                  hintText: 'First Name',
+                                  hintStyle: TextStyle(
+                                      color: Colors.black54,fontSize: 16,fontWeight: FontWeight.w400
+                                  )
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Container(
+                            color: Colors.pink,
+                            height: 40,
+                            child: const TextField(
+                              decoration: InputDecoration(
+                                  hintText: 'First Name',
+                                  hintStyle: TextStyle(
+                                      color: Colors.black54,fontSize: 16,fontWeight: FontWeight.w400
+                                  )
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
                     ],
                   ),
                 )
