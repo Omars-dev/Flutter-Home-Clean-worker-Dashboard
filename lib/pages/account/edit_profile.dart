@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:home_clean_worker_dashboard/utils/constrants.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter/services.dart';
 import 'dart:io';
 
 class EditProfile extends StatefulWidget {
@@ -25,7 +27,7 @@ class _EditProfileState extends State<EditProfile> {
     }
   }
 
-  String _selectedCountry = 'USA';
+  String _selectedCountry = '(+1) US';
 
   @override
   Widget build(BuildContext context) {
@@ -144,46 +146,56 @@ class _EditProfileState extends State<EditProfile> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Expanded(
-                        child: Container(
-                          height: 50,
-                          padding: const EdgeInsets.only(top: 16,left: 10,bottom: 3),
-                          decoration: BoxDecoration(
-                              color: Colors.purple,
-                              borderRadius: BorderRadius.circular(12)
-                          ),
-                          child: const TextField(
-                            decoration: InputDecoration(
-                                hintText: 'First Name',
-                                hintStyle: TextStyle(
-                                    color: Colors.white
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('First Name', style: inputLabelTextStyle),
+                            const SizedBox(height: 13),
+                            Container(
+                              height: 50,
+                              padding: const EdgeInsets.only(top: 16,left: 10,bottom: 5),
+                              decoration: BoxDecoration(
+                                  color: inputFieldBox,
+                                  borderRadius: BorderRadius.circular(12)
+                              ),
+                              child: const TextField(
+                                decoration: InputDecoration(
+                                    hintText: 'Akkas',
+                                    hintStyle: hintActiveTextStyle,
+                                    border: OutlineInputBorder(
+                                        borderSide: BorderSide.none
+                                    )
                                 ),
-                                border: OutlineInputBorder(
-                                    borderSide: BorderSide.none
-                                )
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ),
                       const SizedBox(width:10),
                       Expanded(
-                        child: Container(
-                          height: 50,
-                          padding: const EdgeInsets.only(top: 16,left: 10,bottom: 3),
-                          decoration: BoxDecoration(
-                              color: Colors.purple,
-                              borderRadius: BorderRadius.circular(12)
-                          ),
-                          child: const TextField(
-                            decoration: InputDecoration(
-                                hintText: 'Last Name',
-                                hintStyle: TextStyle(
-                                    color: Colors.white
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('Last Name', style: inputLabelTextStyle,),
+                            const SizedBox(height: 13),
+                            Container(
+                              height: 50,
+                              padding: const EdgeInsets.only(top: 16,left: 10,bottom: 5),
+                              decoration: BoxDecoration(
+                                  color: inputFieldBox,
+                                  borderRadius: BorderRadius.circular(12)
+                              ),
+                              child: const TextField(
+                                decoration: InputDecoration(
+                                    hintText: 'Mia',
+                                    hintStyle: hintActiveTextStyle,
+                                    border: OutlineInputBorder(
+                                        borderSide: BorderSide.none
+                                    )
                                 ),
-                                border: OutlineInputBorder(
-                                    borderSide: BorderSide.none
-                                )
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ),
                     ],
@@ -192,24 +204,30 @@ class _EditProfileState extends State<EditProfile> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   child: Expanded(
-                    child: Container(
-                      height: 50,
-                      padding: const EdgeInsets.only(top: 16,left: 10,bottom: 3),
-                      decoration: BoxDecoration(
-                          color: Colors.purple,
-                          borderRadius: BorderRadius.circular(12)
-                      ),
-                      child: const TextField(
-                        decoration: InputDecoration(
-                            hintText: 'Email',
-                            hintStyle: TextStyle(
-                                color: Colors.white
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Email Address', style: disabledTextStyle),
+                        const SizedBox(height: 13),
+                        Container(
+                          height: 50,
+                          padding: const EdgeInsets.only(top: 16,left: 10,bottom: 5),
+                          decoration: BoxDecoration(
+                              color: inputFieldBox,
+                              borderRadius: BorderRadius.circular(12)
+                          ),
+                          child: const TextField(
+                            enabled: false,
+                            decoration: InputDecoration(
+                                hintText: 'akkas.cse@gmail.com',
+                                hintStyle: disabledTextStyle,
+                                border: OutlineInputBorder(
+                                    borderSide: BorderSide.none
+                                )
                             ),
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none
-                            )
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   ),
                 ),
@@ -226,27 +244,34 @@ class _EditProfileState extends State<EditProfile> {
                             showCountryPicker();
                           },
                           child: DropdownButtonHideUnderline(
-                            child: Container(
-                              height: 50,
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
-                              decoration: BoxDecoration(
-                                color: Colors.purple,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 12),
-                                    child: Text(_selectedCountry,
-                                        style: const TextStyle(color: Colors.white)),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text('Country', style: inputLabelTextStyle,),
+                                const SizedBox(height: 13),
+                                Container(
+                                  height: 50,
+                                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                                  decoration: BoxDecoration(
+                                    color: inputFieldBox,
+                                    borderRadius: BorderRadius.circular(12),
                                   ),
-                                  SvgPicture.asset(
-                                    'assets/icons/dropdown_icon.svg',
-                                    color: Colors.white,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 12),
+                                        child: Text(_selectedCountry,
+                                            style: hintActiveTextStyle),
+                                      ),
+                                      SvgPicture.asset(
+                                        'assets/icons/dropdown_icon.svg',
+                                        color: blackColor,
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
                         ),
@@ -254,50 +279,61 @@ class _EditProfileState extends State<EditProfile> {
                       const SizedBox(width:10),
                       Expanded(
                         flex: 2,
-                        child: Container(
-                          height: 50,
-                          padding: const EdgeInsets.only(top: 16,left: 10,bottom: 3),
-                          decoration: BoxDecoration(
-                              color: Colors.purple,
-                              borderRadius: BorderRadius.circular(12)
-                          ),
-                          child: const TextField(
-                            decoration: InputDecoration(
-                                hintText: 'Phone',
-                                hintStyle: TextStyle(
-                                    color: Colors.white
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text('Phone', style: inputLabelTextStyle,),
+                            const SizedBox(height: 13),
+                            Container(
+                              height: 50,
+                              padding: const EdgeInsets.only(top: 16,left: 10,bottom: 5),
+                              decoration: BoxDecoration(
+                                  color: inputFieldBox,
+                                  borderRadius: BorderRadius.circular(12)
+                              ),
+                              child: TextField(
+                                keyboardType: TextInputType.phone,
+                                inputFormatters: [LengthLimitingTextInputFormatter(15)],
+                                decoration: const InputDecoration(
+                                    hintText: '765968009',
+                                    hintStyle: hintActiveTextStyle,
+                                    border: OutlineInputBorder(
+                                        borderSide: BorderSide.none
+                                    )
                                 ),
-                                border: OutlineInputBorder(
-                                    borderSide: BorderSide.none
-                                )
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
                   child: Expanded(
-                    child: Container(
-                      height: 50,
-                      padding: const EdgeInsets.only(top: 16,left: 10,bottom: 3),
-                      decoration: BoxDecoration(
-                        color: Colors.purple,
-                        borderRadius: BorderRadius.circular(12)
-                      ),
-                      child: const TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Password',
-                          hintStyle: TextStyle(
-                            color: Colors.white
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 45,
+                          width: 250,
+                          padding: const EdgeInsets.only(top: 10,left: 16, right: 16, bottom: 10),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                            color: secondaryBtnColor,
+                            borderRadius: BorderRadius.circular(50)
                           ),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none
+                          child: Row(
+                            children: [
+                              SvgPicture.asset('assets/icons/lock.svg'),
+                              const SizedBox(width: 10),
+                              const Text('Change Password',style: secondaryButtonTextStyle),
+                            ],
                           )
                         ),
-                      ),
+                      ],
                     ),
                   ),
                 ),
@@ -311,13 +347,14 @@ class _EditProfileState extends State<EditProfile> {
                       padding: const EdgeInsets.only(left: 16,right: 16),
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: Colors.purple,
+                          color: primaryColor,
                           borderRadius: BorderRadius.circular(12)
                       ),
-                      child: const Text('SIGN IN',style: TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.w600),)
+                      child: const Text('SIGN IN',style: mainButtonTextStyle,)
                     ),
                   ),
                 ),
+                const SizedBox(height: 30)
               ],
             ),
           ),

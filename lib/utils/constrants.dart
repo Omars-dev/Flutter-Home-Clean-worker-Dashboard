@@ -35,6 +35,9 @@ const redBtnColor = Color(0xFFFF0000);
 
 //TODO: T E X T  S T Y L E
 const inputLabelTextStyle = TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: blackColor,fontFamily: 'Inter');
+const disabledTextStyle = TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color: disabledColor,fontFamily: 'Inter');
 const hintTextStyle = TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: hintTextColor,fontFamily: 'Inter');
-const mainButtonTextStyle = TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color: hintTextColor,fontFamily: 'Inter');
+const hintActiveTextStyle = TextStyle(fontSize: 14,fontWeight: FontWeight.w400,color: blackColor,fontFamily: 'Inter');
+const mainButtonTextStyle = TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color: whiteColor,fontFamily: 'Inter');
+const secondaryButtonTextStyle = TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color:  blackColor,fontFamily: 'Inter');
 const appBarLargeTextStyle = TextStyle(fontSize: 30,fontWeight: FontWeight.w700,color: hintTextColor,fontFamily: 'Inter');

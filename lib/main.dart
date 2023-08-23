@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Inter',
       ),
-      home: const EditProfile(),
+      home: const HomePage(),
     );
   }
 }

@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                       'Working City',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     )
@@ -153,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                       'Working Service',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     )
@@ -182,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                       'Customize City & Price',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     )
@@ -211,7 +211,7 @@ class _HomePageState extends State<HomePage> {
                       'Add Member',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     )
@@ -244,10 +244,10 @@ class _HomePageState extends State<HomePage> {
                       height: 12,
                     ),
                     const Text(
-                      'Shift Viewer',
+                      'Shift \nViewer',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     )
@@ -274,10 +274,10 @@ class _HomePageState extends State<HomePage> {
                       height: 12,
                     ),
                     const Text(
-                      'Shift Configuration',
+                      'Shift \nConfig',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     )
@@ -306,7 +306,7 @@ class _HomePageState extends State<HomePage> {
                       'Completed Service',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     )
@@ -335,7 +335,7 @@ class _HomePageState extends State<HomePage> {
                       'Service Analytics',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.black),
                     )
