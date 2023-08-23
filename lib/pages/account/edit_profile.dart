@@ -36,6 +36,8 @@ class _EditProfileState extends State<EditProfile> {
     super.dispose();
   }
 
+  bool _saveLoginInfo = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -342,7 +344,35 @@ class _EditProfileState extends State<EditProfile> {
                 const SizedBox(height: 35),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-                  child: const Text('We save the login info, so you  won’t need to enter it on Android devices', style: inputLabelTextStyle),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text('Save Login Info', style: TextStyle(color: blackColor,fontWeight: FontWeight.w600,fontSize: 18),textAlign: TextAlign.left,),
+                      const SizedBox(height: 10),
+                      Row(
+                        children: [
+                          //TODO: Switch Button width 30
+                          Switch(
+                            value: _saveLoginInfo,
+                            onChanged: (newValue) {
+                              setState(() {
+                                _saveLoginInfo = newValue;
+                              });
+                            },
+                          ),
+
+                          //Text
+                          Flexible(
+                            child: Text(
+                              'We save the login info, so you won’t need to enter it on Android devices',
+                              style: hintTextStyle,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 35),
                 Padding(
