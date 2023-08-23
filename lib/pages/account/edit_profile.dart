@@ -136,6 +136,8 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
                 const SizedBox(height: 25),
+
+                //TODO: Form Field
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 20),
                   child: Row(
@@ -144,7 +146,6 @@ class _EditProfileState extends State<EditProfile> {
                       Expanded(
                         child: Container(
                           height: 50,
-                          width: 194,
                           padding: const EdgeInsets.only(top: 16,left: 10,bottom: 3),
                           decoration: BoxDecoration(
                               color: Colors.purple,
@@ -167,7 +168,6 @@ class _EditProfileState extends State<EditProfile> {
                       Expanded(
                         child: Container(
                           height: 50,
-                          width: 194,
                           padding: const EdgeInsets.only(top: 16,left: 10,bottom: 3),
                           decoration: BoxDecoration(
                               color: Colors.purple,
@@ -194,7 +194,6 @@ class _EditProfileState extends State<EditProfile> {
                   child: Expanded(
                     child: Container(
                       height: 50,
-                      width: 194,
                       padding: const EdgeInsets.only(top: 16,left: 10,bottom: 3),
                       decoration: BoxDecoration(
                           color: Colors.purple,
@@ -220,60 +219,43 @@ class _EditProfileState extends State<EditProfile> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Expanded(
-                        child:  Container(
-                          height: 50,
-                          width: 194,
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                            color: Colors.purple,
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              DropdownButton<String>(
-                                value: _selectedCountry,
-                                icon: SizedBox.shrink(),
-                                iconSize: 0,
-                                elevation: 16,
-                                style: const TextStyle(color: Colors.white),
-                                underline: Container(
-                                  height: 2,
-                                  color: Colors.transparent,
-                                ),
-                                onChanged: (String? newValue) {
-                                  setState(() {
-                                    _selectedCountry = newValue!;
-                                  });
-                                },
-                                items: <String>['USA', 'AUS', 'UAE', 'CAN']
-                                    .map<DropdownMenuItem<String>>(
-                                      (String value) {
-                                    return DropdownMenuItem<String>(
-                                      value: value,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(left: 8.0),
-                                        child: Text(value,style: TextStyle(color: Colors.black),),
-                                      ),
-                                    );
-                                  },
-                                ).toList(),
+                        flex: 1,
+                        child:  GestureDetector(
+                          onTap: () {
+                            FocusScope.of(context).unfocus();
+                            showCountryPicker();
+                          },
+                          child: DropdownButtonHideUnderline(
+                            child: Container(
+                              height: 50,
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                              decoration: BoxDecoration(
+                                color: Colors.purple,
+                                borderRadius: BorderRadius.circular(12),
                               ),
-                              SvgPicture.asset(
-                                'assets/icons/dropdown_icon.svg',
-                                color: Colors.white,
-                                width: 10,
-                                height: 10,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 12),
+                                    child: Text(_selectedCountry,
+                                        style: const TextStyle(color: Colors.white)),
+                                  ),
+                                  SvgPicture.asset(
+                                    'assets/icons/dropdown_icon.svg',
+                                    color: Colors.white,
+                                  ),
+                                ],
                               ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
                       const SizedBox(width:10),
                       Expanded(
+                        flex: 2,
                         child: Container(
                           height: 50,
-                          width: 194,
                           padding: const EdgeInsets.only(top: 16,left: 10,bottom: 3),
                           decoration: BoxDecoration(
                               color: Colors.purple,
@@ -300,7 +282,6 @@ class _EditProfileState extends State<EditProfile> {
                   child: Expanded(
                     child: Container(
                       height: 50,
-                      width: 194,
                       padding: const EdgeInsets.only(top: 16,left: 10,bottom: 3),
                       decoration: BoxDecoration(
                         color: Colors.purple,
@@ -320,12 +301,57 @@ class _EditProfileState extends State<EditProfile> {
                     ),
                   ),
                 ),
-                //TODO: Form Field
+                //TODO: Form Submit Button
+                const SizedBox(height: 35),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                  child: Expanded(
+                    child: Container(
+                      height: 50,
+                      padding: const EdgeInsets.only(left: 16,right: 16),
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.purple,
+                          borderRadius: BorderRadius.circular(12)
+                      ),
+                      child: const Text('SIGN IN',style: TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.w600),)
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  void showCountryPicker() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Select Country'),
+          content: DropdownButton<String>(
+            value: _selectedCountry,
+            onChanged: (String? newValue) {
+              setState(() {
+                _selectedCountry = newValue!;
+              });
+              Navigator.pop(context);
+            },
+            items: <String>['USA', 'AUS', 'UAE', 'CAN']
+                .map<DropdownMenuItem<String>>(
+                  (String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              },
+            ).toList(),
+          ),
+        );
+      },
     );
   }
 }
