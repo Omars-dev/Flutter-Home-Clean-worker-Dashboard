@@ -26,7 +26,7 @@ class _EditProfileState extends State<EditProfile> {
     }
   }
 
-  String _selectedCountry = '(+1) US';
+  String _selectedCountry = 'USA';
 
   final TextEditingController _phoneNumberController = TextEditingController();
 
@@ -235,6 +235,7 @@ class _EditProfileState extends State<EditProfile> {
                           onTap: () {
                             FocusScope.of(context).unfocus();
                             showCountryPicker();
+                            print(_selectedCountry);
                           },
                           child: DropdownButtonHideUnderline(
                             child: Column(
@@ -287,7 +288,7 @@ class _EditProfileState extends State<EditProfile> {
                               child: TextField(
                                 keyboardType: TextInputType.phone,
                                 controller: _phoneNumberController,
-                                inputFormatters: [LengthLimitingTextInputFormatter(15)],
+                                inputFormatters: [LengthLimitingTextInputFormatter(12)],
                                 decoration: InputDecoration(
                                   hintText: '765968009',
                                   hintStyle: hintActiveTextStyle,
@@ -301,7 +302,7 @@ class _EditProfileState extends State<EditProfile> {
                                         _phoneNumberController.clear();
                                       });
                                     },
-                                    icon: const Icon(Icons.cancel),
+                                    icon: const Icon(Icons.cancel,size: 20,),
                                   ),
                                 ),
                               ),
@@ -338,6 +339,11 @@ class _EditProfileState extends State<EditProfile> {
                   ),
                 ),
                 // TODO: Form Submit Button
+                const SizedBox(height: 35),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+                  child: const Text('We save the login info, so you  won’t need to enter it on Android devices', style: inputLabelTextStyle),
+                ),
                 const SizedBox(height: 35),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
