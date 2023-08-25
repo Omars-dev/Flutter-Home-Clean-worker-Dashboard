@@ -354,6 +354,7 @@ class _EditProfileState extends State<EditProfile> {
                         children: [
                           //TODO: Switch Button width 30
                           Switch(
+                            activeTrackColor: primaryColor,
                             value: _saveLoginInfo,
                             onChanged: (newValue) {
                               setState(() {
