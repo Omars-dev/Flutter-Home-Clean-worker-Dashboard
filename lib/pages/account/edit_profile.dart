@@ -363,7 +363,7 @@ class _EditProfileState extends State<EditProfile> {
                           ),
 
                           //Text
-                          Flexible(
+                          const Flexible(
                             child: Text(
                               'We save the login info, so you won’t need to enter it on Android devices',
                               style: hintTextStyle,
